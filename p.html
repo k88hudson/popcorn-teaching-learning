@@ -1,0 +1,508 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<link rel="stylesheet" href="css/1140.css">
+	
+	<style type="text/css">
+		body {
+			font: 14pt/1.6 calluna-sans, skolar, sans-serif;
+			margin: 0;
+			padding: 0;
+			background: #EEE;
+			border-top: 8px solid #000;
+			text-shadow: 0 0 1px rgba(0,0,0,0.2);
+		}
+		
+		a, a:visited, a:active, a:focus {
+			text-decoration: none;
+			color: #FF0044;
+		}
+	
+		
+		
+		nav a.on, nav a {
+			margin-top: 3px;
+			background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.24, rgb(231, 81, 66)), color-stop(0.617, rgb(232, 99, 86)));
+			border-radius: 2px;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border: 1px solid rgb(208, 42, 26);
+			padding: 5px;
+			font-size: 10px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: #FFF;
+		}
+		
+		nav a.on:hover {
+			background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.243, rgb(238, 57, 40)), color-stop(0.617, rgb(234, 87, 73)));
+		}
+		
+		nav a {
+			background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.24, rgba(50,50,50,0.5)), color-stop(0.613, rgba(50,50,50,0.4)));
+			border-color: #8c8c8c;
+		}
+		
+		nav a:hover {
+			background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.24, rgb(117, 117, 117)), color-stop(0.613, rgb(135, 135, 135)));
+			border-color: #515151;
+		}
+		
+		/* LINE STYLES ~ */
+		
+		.ln { /* For each line */
+			margin: 0;
+			margin-left: 24%;
+			padding: 0;
+			line-height: 1.2;
+			font-size: 1.1em;
+		}
+		
+		.first { /* For first lines */
+			margin-top: 1em;
+			margin-left: 0;
+		}
+		
+		.action { /* For actions */
+			margin-top: 1em;
+			margin-bottom: 1em;
+			font-style: italic;
+			color: #333;
+		}
+		
+		p i { /* For names of speakers */
+			width: 22%;
+			padding-right: 2%;
+			text-indent: 0;
+			text-align: left;
+			float: left;
+			font-style: italic;
+			color: #333;
+		}
+		
+		/* UPDATED LINE STYLES FOR POPCORN */
+		.ln {
+			margin-left: 0;
+		}
+		
+		
+		/* ANNOTATION/LINK STYLES ~ */
+		
+		#footnotes .defn { 
+			position:relative; 
+			z-index:24;
+			color: #FF0044;
+		}
+		#footnotes .defn b {
+			width: 0;
+			display:block;
+			position:absolute;
+			top: 25px;
+			border:1px solid #333333; 
+			padding:5px;
+			font-size:11px;
+			color:#333333;
+			background-color:#FCFBDC; 
+			opacity : 0;
+			
+		}
+		#footnotes .defn:hover {z-index:25;}
+		#footnotes .defn:hover b { 
+			width:12em;
+			opacity : 1;
+			-webkit-transition : opacity 0.3s linear;
+			-moz-transition : opacity 0.3s linear;
+			transition : opacity 0.3s linear;
+		}
+		
+		#translation {
+			display: none
+		}
+		
+		#collapsable .defn {
+			display: block;
+			width: 100%;
+			line-height: 1.1;
+		}
+		#collapsable b {
+			line-height: 1.1;
+			padding-bottom: 1em;
+			font-weight: 400;
+			font-style: italic;
+			display: block;
+		}
+		#collapsable b:before {content: "\2014  ";}
+		
+		.controls {
+			padding: 0;
+		}
+		.controls li {
+			margin: 0;
+			text-indent: 0;
+			margin-right: 1em;
+			list-style: none;
+			float: left;
+		}
+		
+		#wrapper {
+			width: 100%;
+		}
+		
+		video {
+			width: 100%;
+		}
+		
+		
+		#saveme {
+			display: none;
+			position: absolute;
+		}
+		
+		/* Typography */
+		
+		h1 {
+			font-size: 2.5em;
+			margin-bottom: 0;
+			margin-top: 4%;
+		}
+		h2 {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+		aside ul {
+			margin-top: 1em;
+			padding: 0;
+		}
+		
+		aside ul li{
+			list-style: none;
+			margin-bottom: 1em;
+		}
+		
+		aside ul li .content {
+			font-size: 0.9em;
+			line-height: 1.2;
+			text-align: left;
+			height: 12em;
+			overflow-y: auto;
+			padding: 0.8em;
+			background: #FFF;
+			color: #333;
+			border: 1px solid #B5B5B5;
+		}
+		
+		nav{
+			margin-top: 5%;
+			
+		}
+		
+		.no-margin {
+			margin-top: 0;
+		}
+		
+		.clearfix:after {
+			content: ".";
+			display: block;
+			clear: both;
+			visibility: hidden;
+			line-height: 0;
+			height: 0;
+		}
+		 
+		.clearfix {
+			display: inline-block;
+		}
+		 
+		html[xmlns] .clearfix {
+			display: block;
+		}
+		 
+		* html .clearfix {
+			height: 1%;
+		}
+	</style>
+
+	<script src="js/libs/modernizr-2.0.min.js"></script>
+	<script src="js/libs/respond.min.js"></script>
+	
+	<script type="text/javascript" src="http://use.typekit.com/ttg2xxj.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
+</head>
+<body>
+<div id="wrapper" class="clearfix">
+	<!--<aside>
+		<p>Notes</p>
+		<ul></ul>
+	</aside> -->
+	
+	<div class="container">
+	<section>
+			<div class="onecol" id="spacer">
+				<p><button id="saveme" onclick="GetSelectedText()">Save Me</button></p>
+				<ul></ul>
+			</div>
+			
+			<div class="fivecol">
+				
+				<h1 id="title">ACT I SCENE V</h1>
+				<div id="video-wrapper">
+					<video id="video" controls>
+						<source id='mp4'
+						       src="macbeth.mp4"
+						       type='video/mp4; codecs="avc1, mp4a"'>
+						<source id='ogv'
+						    src="macbeth.ogv"
+						    type='video/ogg; codecs="theora, vorbis"'>
+					</video>
+				    <div id="footnotes"></div>
+				    <div id="translation"></div>
+				    <nav class="no-margin">
+				    	<ul class=" controls clearfix">
+				    		<li><a href="original" class="on">original</a></li>
+				    		<li><a href="translation">modern</a></li>
+				    		<li><a href="bilingual">bilingual</a></li>
+				    	</ul>
+				    </nav>
+				
+				</div>
+					</div><!-- eightcol -->
+			<div class="threecol" id="running">
+				<nav>
+					<ul class="controls clearfix">
+						<li><a href="collapse">hide terms</a></li>
+					</ul>
+				</nav>
+				<div id="collapsable">
+				</div>
+			</div>
+			<div class="threecol last" id="notes">
+			<aside>
+				<h2>Notes</h2>
+				<ul>
+				<li>
+					<div class="content">
+					One of the most ambiguous aspects of the play is the character of Macbeth himself. Unlike other Shakespearean villains like Iago or Richard III, Macbeth is not entirely committed to his evil actions. When he swears to commit suicide, he must overcome an enormous resistance from his conscience. At the same time, he sees as his own biggest flaw not a lack of moral values but rather a lack of motivation to carry out his diabolical schemes. In this he resembles Hamlet, who soliloquizes numerous times about his inaction. But unlike Hamlet, Macbeth does not have a good reason to kill, nor is the man he kills evil—far from it. And finally, while Macbeth becomes increasingly devoted to murderous actions, his soliloquies are so full of eloquent speech and pathos that it is not difficult to sympathize with him. Thus at the heart of the play lies a tangle of uncertainty.
+					</div>
+			</li>
+			<li>
+				<div class="content">
+					If Macbeth is indecisive, Lady Macbeth is just the opposite—a character with such a single vision and drive for advancement that she brings about her own demise. And yet her very ruthlessness brings about another form of ambiguity, for in swearing to help Macbeth realize the Weird Sisters' prophecy, she must cast off her femininity. In a speech at the beginning of Scene 5, she calls on the spirits of the air to take away her womanhood:
+					</div>
+			</li>
+				</ul>
+			</aside>
+			</div>
+			
+	</section>
+	</div>
+
+</div><!--wrapper-->
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-ui.js"><\/script>')</script>
+<!-- scripts concatenated and minified via ant build script-->
+<script src="js/plugins.js"></script>
+<script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/popcorn.js"><\/script>')</script>
+<script type="text/javascript" src="js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="build/html2canvas.js"></script>
+<script type="text/javascript" src="build/jquery.plugin.html2canvas.js"></script>
+<script type="text/javascript" src="build/canvas2image.js"></script>
+<script type="text/javascript" src="build/base64.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+	enableTesting();
+	
+	//Create the popcorn instance
+	var popcorn = Popcorn( "#video" );
+	
+	//Initialize the default 'original text' setting
+	var setting = 'orig';
+	
+	$(document).ready( function(){
+	
+	 //Get the json file containing footnote data, and run it through popcorn.
+	   	$.getJSON('popcorn.json', function(data) {
+	   			var textStr;
+	   			$.each(data, function(index, note) {
+	   				//Reformat the original string for output
+	   				note.orig = parseLines(note.orig, index, note.start);
+	   				
+	 				//For the translation
+   					popcorn.footnote({
+   						start: note.start,
+   						end: note.end,
+   						text: note.modern,
+   						target: "translation"
+   					});
+
+	   				//Populate footnotes
+	   				popcorn.footnote({
+	   					start: note.start,
+	   					end: note.end,
+	   					text: note.orig,
+	   					target: "footnotes"
+	   				});
+	   				//Append to collapsable panel in running
+	   				var terms = getTerms(note.orig);
+	   				if (terms != null) {
+	   					console.log(terms);
+		   				$.each(terms, function(k, term) {
+		   					var def = term.match(/\<b\>.*?\<\/b\>/g);
+		   					term = term.replace(def, '').replace(/start\=\"/g, 'onClick="getHash();" href="#').replace(/span/g, 'a');
+		   					console.log(term);
+		   					var newDefn = $("#collapsable").append(term + def);
+		   				});
+		   			}
+	   			});
+	   			
+	   		});
+	   		
+	 //Create hover functionality
+	 	$('#video').hover(function() {
+	 		popcorn.play();
+	 		$('body').animate({"background-color":'#222',color:'#333'}, 400);
+	 		$(this).parent().css('color','#fff');
+	 		$('#collapsable a').css('color','#850F2C');
+	 		$('aside ul li .content').css('opacity','0.1');
+	 	}, function() {
+	 		$('body').animate({"background-color":'#EEE',color:'#333'}, 400);
+	 		$(this).parent().css('color','');
+	 		$('#collapsable a').css('color','');
+	 		$('aside ul li .content').css('opacity','1');
+	 		popcorn.pause();
+	 	});
+	 
+	}); //Doc ready
+	
+	//CLICK FUNCTIONS
+	$("nav a").click( function(e) {
+		//Some app functionality
+		e.preventDefault();
+
+		$("nav a").removeClass('on');
+		$(this).addClass('on')
+		
+		var link = $(this);
+		switch($(this).attr('href')) {
+			case 'collapse':
+				if($('#running').hasClass('threecol')) {
+					$('#collapsable').fadeOut( function(){
+						$('#running').removeClass('threecol').addClass('twocol');
+						$('#notes').removeClass('threecol').addClass('fourcol');
+						link.html('show terms');
+					});
+				} else {
+					$('#running').removeClass('twocol').addClass('threecol');
+					$('#notes').removeClass('fourcol').addClass('threecol');
+					$('#collapsable').fadeIn();
+					link.html('hide terms');
+				}
+				break;
+				
+			case 'scroll':
+				/*$('#navigation').localScroll({
+				   target:'#content'
+				});
+				*/
+				break;
+				
+			case 'original':
+				$("#footnotes").show();
+				$("#translation").hide();
+				break;
+				
+			case 'translation':
+				$("#footnotes").hide();
+				$("#translation").show();
+				break;
+				
+			case 'bilingual':
+				$("#footnotes").show();
+				$("#translation").show();
+				break;
+		}
+	}); //nav a
+	
+	
+	//Listen for changes
+		$(window).bind('hashchange', getHash);
+	
+	
+	
+
+	// FUNCTIONS ------------------
+	
+	function getHash() {
+		var posn = window.location.hash.substr(1);
+		if(popcorn) {
+				popcorn.currentTime(posn);
+				console.log('scrolled to: ' + posn);
+				popcorn.play();
+		}
+	}
+	
+	function parseLines(text, id, start) {
+		//Creates a formatted version from the JSON format of the line
+		// The fragment ' / ' is converted to a new line, and paragraph tags are added on each line
+		var parsed = ('<p id="line-'+id+'" class="ln">' + text + '</p>')
+			.replace(/ \/ /g, '</p><p class="ln">')
+			.replace(/\[defn\]/g, '<span class="defn" start="'+start+'"><b>')
+			.replace(/\%\%/g, '</b>')
+			.replace(/\[\/defn\]/g,'</span>');
+		return parsed;
+	}
+	
+	function getTerms(text) {
+		//Gets terms out of a parsed string of text.
+		var result = text.match(/\<span class\=\"defn\".*?\<\/span\>/g);
+		var res
+		return result;
+	}
+	
+	function jumpTo(num) {
+		popcorn.currentTime(num).play();
+	}
+	
+	function enableTesting() {
+		//Adds a floating bar to the top which, if clicked, activates a grid overlay stylesheet for testing purposes.
+		$('#wrapper').prepend('<div id="testing" style="text-align:center;width:100%;color:#FFF;font-size:10px;background:#000;position:fixed;top:0;left:0">TESTING STYLES<div>');
+		
+		$('#testing').click(function() {
+			if(!$(this).hasClass('on')) {
+				$('head').append('<link rel="stylesheet" href="css/testing.css" type="text/css" />');
+				$(this).addClass('on');
+			} else {
+				$(this).removeClass('on');
+				$('LINK[href="css/testing.css"]').remove();
+			}
+		});
+	}
+</script>
+
+<!-- end scripts-->
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+</body>
+</html>

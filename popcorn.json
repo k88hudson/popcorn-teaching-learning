@@ -1,0 +1,86 @@
+[
+    {
+        "start": 15,
+        "end": 26,
+        "orig": "Glamis thou art, and Cawdor; and shalt be / [defn]King (as the witches prophesised) > What thou art promised[/defn]: yet I do fear thy nature;",
+        "modern": "You are thane of Glamis and Cawdor, and you’re going to be king, just like you were promised. But I worry about whether or not you have what it takes to seize the crown."
+    },
+    {
+        "start": 26,
+        "end": 33,
+        "orig": "It is too full o' the milk of human kindness / [defn]to strike at the first opportunity > to catch the nearest way[/defn]:",
+        "modern": "You are too full of the milk of human kindness to strike aggressively at your first opportunity. "
+    },
+    {
+        "start": 33,
+        "end": 44,
+        "orig": "[defn]come home quickly > Hie thee hither[/defn], / That I may pour my spirits in thine ear; / And chastise with the valour of my tongue / All that impedes thee from the [defn]crown > golden round[/defn],",
+        "modern": "Hurry home so I can persuade you and talk you out of whatever’s keeping you from going after the crown. "
+    },
+    {
+        "start": 44,
+        "end": 50,
+        "orig": "Which fate and [defn]witchcraft > metaphysical aid[/defn] doth seem / To have thee crown'd withal.",
+        "modern": "After all, fate and witchcraft both seem to want you to be king."
+    },
+    {
+        "start": 50,
+        "end": 52,
+        "orig": "Enter Messenger.",
+        "modern": "Enter Messenger."
+    },
+    {
+        "start": 52,
+        "end": 54,
+        "orig": "What is your tidings?",
+        "modern": "What news do you bring?"
+    },
+    {
+        "start": 54,
+        "end": 58,
+        "orig": "The king comes here to-night.",
+        "modern": "The king is coming here tonight."
+    },
+    {
+        "start": 58,
+        "end": 66,
+        "orig": "Thou'rt mad to say it: / Is not [defn]Macbeth > thy master[/defn] with him? who, were't so, / Would have inform'd for preparation.",
+        "modern": "You must be crazy to say that! Isn’t Macbeth with the king, and wouldn’t Macbeth have told me in advance so I could prepare, if the king were really coming?"
+    },
+    {
+        "start": 66,
+        "end": 75,
+        "orig": "[defn]I'm sorry > So please you[/defn], it is true: our thane is coming: / One of my fellows [defn]arrived first > had the speed of him[/defn], / Who, almost dead for breath, had scarcely more / Than would make up his message.",
+        "modern": "I’m sorry, but it’s the truth. Macbeth is coming. He sent a messenger ahead of him who arrived here so out of breath that he could barely speak his message."
+    },
+    {
+        "start": 75,
+        "end": 78,
+        "orig": "Give him tending; / He brings great news.",
+        "modern": "Take good care of him. He brings great news."
+    },
+    {
+        "start": 78,
+        "end": 79,
+        "orig": "Exit Messenger.",
+        "modern": "Exit Messenger."
+    },
+    {
+        "start": 81,
+        "end": 90,
+        "orig": "The raven himself is hoarse / That croaks the fatal entrance of Duncan / Under my battlements.",
+        "modern": ""
+    },
+    {
+        "start": 90,
+        "end": 105,
+        "orig": "Come, you spirits / That tend on mortal thoughts, [defn]Take away my womanly nature > unsex me here[/defn], / And fill me from the crown to the toe top-full / Of direst cruelty!",
+        "modern": ""
+    },
+    {
+        "start": 105,
+        "end": 117,
+        "orig": "Make thick my blood; / Stop up the access and passage to remorse, / That no compunctious visitings of nature / Shake my fell purpose, nor keep peace between / The effect and it!",
+        "modern": ""
+    }
+]

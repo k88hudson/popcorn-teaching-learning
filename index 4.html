@@ -1,0 +1,425 @@
+<!doctype html>
+
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	<link rel="stylesheet" href="css/1140.css">
+	
+	<style type="text/css">
+		body {
+			font: 14pt/1.6 calluna-sans, skolar, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		a, a:visited, a:active, a:focus {
+			text-decoration: none;
+		}
+		
+		/* LINE STYLES ~ */
+		
+		.ln { /* For each line */
+			margin: 0;
+			margin-left: 24%;
+			padding: 0;
+		}
+		
+		.first { /* For first lines */
+			margin-top: 1em;
+			margin-left: 0;
+		}
+		
+		.action { /* For actions */
+			margin-top: 1em;
+			margin-bottom: 1em;
+			font-style: italic;
+			color: #333;
+		}
+		
+		p i { /* For names of speakers */
+			width: 22%;
+			padding-right: 2%;
+			text-indent: 0;
+			text-align: left;
+			float: left;
+			font-style: italic;
+			color: #333;
+		}
+		
+		/* UPDATED LINE STYLES FOR POPCORN */
+		.ln {
+			margin-left: 0;
+		}
+		
+		
+		/* ANNOTATION/LINK STYLES ~ */
+		
+		.defn { position:relative; z-index:24;
+		}
+		.defn span {
+			width: 0;
+			display:block;
+			position:absolute;
+			top:25px;
+			opacity: 1;
+			border:1px solid #333333; 
+			padding:5px;
+			font-size:11px;
+			color:#333333;
+			background-color:#FCFBDC; 
+			opacity : 0;
+			
+		}
+		.defn:hover {z-index:25;}
+		.defn:hover span { 
+			width: 120px;
+			opacity : 1;
+			-webkit-transition : opacity 0.3s linear;
+			-moz-transition : opacity 0.3s linear;
+			transition : opacity 0.3s linear;
+		}
+		
+		#wrapper {
+			width: 100%;
+		}
+		
+		
+		aside {
+			text-align: center;
+		}
+		
+		#saveme {
+			display: none;
+			position: absolute;
+		}
+		
+		/* Typography */
+		
+		h1 {
+			font-size: 2.5em;
+			margin-top: 3.8% 0;
+		}
+		
+		aside ul {
+			padding: 1em;
+		}
+		
+		aside ul li{
+			list-style: none;
+			margin-bottom: 1em;
+		}
+		
+		aside ul li .content {
+			height: 200px;
+			overflow-y: hidden;
+			padding: 1em;
+			background: #FFF;
+			color: #333;
+		}
+		
+		
+		.clearfix:after {
+			content: ".";
+			display: block;
+			clear: both;
+			visibility: hidden;
+			line-height: 0;
+			height: 0;
+		}
+		 
+		.clearfix {
+			display: inline-block;
+		}
+		 
+		html[xmlns] .clearfix {
+			display: block;
+		}
+		 
+		* html .clearfix {
+			height: 1%;
+		}
+	</style>
+
+	<script src="js/libs/modernizr-2.0.min.js"></script>
+	<script src="js/libs/respond.min.js"></script>
+	
+	<script type="text/javascript" src="http://use.typekit.com/ttg2xxj.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	
+</head>
+<body>
+<div id="wrapper" class="clearfix">
+	<!--<aside>
+		<p>Notes</p>
+		<ul></ul>
+	</aside> -->
+	
+	<div class="container">
+	<section>
+			<div class="onecol">
+				<p><button id="saveme" onclick="GetSelectedText()">Save Me</button></p>
+				<ul></ul>
+			</div>
+			
+			<div class="eightcol">
+				
+				<h1 id="title">ACT I SCENE V</h1>
+	
+				<p>Inverness. Macbeth&#8217;s castle.</p>
+				<div id="video-wrapper">
+					<video id="video" style="width: 360px;" controls>
+						<source id='mp4'
+						       src="macbeth.mp4"
+						       type='video/mp4; codecs="avc1, mp4a"'>
+						<source id='ogv'
+						    src="macbeth.ogv"
+						    type='video/ogg; codecs="theora, vorbis"'>
+					</video>
+				    <div id="footnotes"></div>
+				    <div id="translation"></div>
+				    <a href="#" onClick="jumpTo(15)">Jump to 0:15</a>
+				</div>
+		<!--
+				<p class="ln first"><i>Lady Macbeth</i><span style="margin-left:-0.4em">&#8216;</span>They met me in the day of success: and I have</p>
+				<p class="ln">learned by the <b class="defn"><span>most accurate</span>perfectest</b> report, they have more in</p>
+				<p class="ln">them than mortal knowledge. When I burned in desire</p>
+				<p class="ln">to question them further, they made themselves air,
+				<p class="ln">into which they vanished. Whiles I stood rapt in</p>
+				<p class="ln">the wonder of it, came missives from the king, who</p>
+				<p class="ln">all-hailed me &#8216;Thane of Cawdor;&#8217; by which title,</p>
+				<p class="ln">before, these weird sisters saluted me, and <b class="defn">referred</p>
+				<p class="ln">me to the coming on of time<span>directed me to the future</span></b>, with &#8216;Hail, king that</p>
+				<p class="ln">shalt be!&#8217; This have I thought good to deliver</p>
+				<p class="ln">thee, my dearest partner of greatness, that thou</p>
+				<p class="ln">mightst not lose the dues of rejoicing, by being</p>
+				<p class="ln">ignorant of what greatness is promised thee. Lay it</p>
+				<p class="ln">to thy heart, and farewell.&#8217;</p>
+				<p class="ln">Glamis thou art, and Cawdor; and shalt be</p>
+				<p class="ln">What thou art promised: yet do I fear thy nature;</p>
+				<p class="ln">It is too full o&#8217; the milk of human kindness</p>
+				<p class="ln">To catch the nearest way: thou wouldst be great;</p>
+				<p class="ln">Art not without ambition, but without</p>
+				<p class="ln">The illness should attend it: what thou wouldst highly,</p>
+				<p class="ln">That wouldst thou holily; wouldst not play false,</p>
+				<p class="ln">And yet wouldst wrongly win: thou&#8217;ldst have, great Glamis,</p>
+				<p class="ln">That which cries &#8216;Thus thou must do, if thou have it;</p>
+				<p class="ln">And that which rather thou dost fear to do</p>
+				<p class="ln">Than wishest should be undone.&#8217; Hie thee hither,</p>
+				<p class="ln">That I may pour my spirits in thine ear;</p>
+				<p class="ln">And chastise with the valour of my tongue</p>
+				<p class="ln">All that impedes thee from the golden round,</p>
+				<p class="ln">Which fate and metaphysical aid doth seem</p>
+				<p class="ln">To have thee crown&#8217;d withal.</p>
+				
+				<p class="ln action">Enter a Messenger.</p>
+				
+				<p class="ln">What is your tidings?</p>
+				
+				<p class="ln first"><i>Messenger</i>The king comes here to-night.</p>
+				
+				<p class="ln first"><i>Lady Macbeth</i>Thou&#8217;rt mad to say it:</p>
+				<p class="ln">Is not thy master with him? who, were&#8217;t so,</p>
+				<p class="ln">Would have inform&#8217;d for preparation.</p>
+				
+				<p class="ln first"><i>Messenger</i>So please you, it is true: our thane is coming:</p>
+				<p class="ln">One of my fellows had the speed of him,</p>
+				<p class="ln">Who, almost dead for breath, had scarcely more</p>
+				<p class="ln">Than would make up his message.</p>
+				
+				<p class="ln first"><i>Lady Macbeth</i>Give him tending;</p>
+				
+				<p class="ln">He brings great news.</p>
+				
+				<p class="ln action">Exit Messenger.</p>
+				
+				<p class="ln">The raven himself is hoarse</p>
+				<p class="ln">That croaks the fatal entrance of Duncan</p>
+				<p class="ln">Under my battlements. Come, you spirits</p>
+				<p class="ln">That tend on mortal thoughts, unsex me here,</p>
+				<p class="ln">And fill me from the crown to the toe top-full</p>
+				<p class="ln">Of direst cruelty! make thick my blood;</p>
+				<p class="ln">Stop up the access and passage to remorse,</p>
+				<p class="ln">That no compunctious visitings of nature</p>
+				<p class="ln">Shake my fell purpose, nor keep peace between</p>
+				<p class="ln">The effect and it! Come to my woman&#8217;s breasts,</p>
+				<p class="ln">And take my milk for gall, you murdering ministers,</p>
+				<p class="ln">Wherever in your sightless substances</p>
+				<p class="ln">You wait on nature&#8217;s mischief! Come, thick night,</p>
+				<p class="ln">And pall thee in the dunnest smoke of hell,</p>
+				<p class="ln">That my keen knife see not the wound it makes,</p>
+				<p class="ln">Nor heaven peep through the blanket of the dark,</p>
+				<p class="ln">To cry &#8216;Hold, hold!&#8217;</p>
+				
+				<p class="ln action">Enter MACBETH.</p>
+				
+				<p class="ln">Great Glamis! worthy Cawdor!
+				<p class="ln">Greater than both, by the all-hail hereafter!</p>
+				<p class="ln">Thy letters have transported me beyond</p>
+				<p class="ln">This ignorant present, and I feel now</p>
+				<p class="ln">The future in the instant.</p>
+				
+				<p class="ln first"><i>Macbeth</i><p class="ln">My dearest love,</p>
+				<p class="ln">Duncan comes here to-night.</p>
+				
+				<p class="ln first"><i>Lady Macbeth</i>And when goes hence?</p>
+				
+				<p class="ln first"><i>Macbeth</i><p class="ln">To-morrow, as he purposes.</p>
+				
+				<p class="ln first"><i>Lady Macbeth</i>O, never</p>
+				<p class="ln">Shall sun that morrow see!
+				<p class="ln">Your face, my thane, is as a book where men</p>
+				<p class="ln">May read strange matters. To beguile the time,</p>
+				<p class="ln">Look like the time; bear welcome in your eye,</p>
+				<p class="ln">Your hand, your tongue: look like the innocent flower,</p>
+				<p class="ln">But be the serpent under&#8217;t. He that&#8217;s coming</p>
+				<p class="ln">Must be provided for: and you shall put</p>
+				<p class="ln">This night&#8217;s great business into my dispatch;</p>
+				<p class="ln">Which shall to all our nights and days to come</p>
+				<p class="ln">Give solely sovereign sway and masterdom.</p>
+				
+				<p class="ln first"><i>Macbeth</i>We will speak further.</p>
+				
+				<p class="ln first"><i>Lady Macbeth</i>Only look up clear;</p>
+				<p class="ln">To alter favour ever is to fear:</p>
+				<p class="ln">Leave all the rest to me.</p>
+				
+				<p class="ln action">Exeunt</p>
+				-->
+			</div><!-- eightcol -->
+			<div class="threecol last">
+			<aside>
+				<p>Notes</p>
+				<ul></ul>
+			</aside>
+			</div>
+			
+	</section>
+	</div>
+
+</div><!--wrapper-->
+	
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+<!-- scripts concatenated and minified via ant build script-->
+<script src="js/plugins.js"></script>
+<script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+	enableTesting();
+	
+	//Definition hovering
+	$(".defn").hover(function(e) {
+		e.preventDefault();
+		var definition = $(this).attr('href');
+	});
+	
+	//Create the popcorn instance
+	var popcorn = Popcorn( "#video" );
+	
+	//Initialize the default 'original text' setting
+	var setting = 'orig';
+	
+	$(document).ready( function(){
+	
+	 //Get the json file containing footnote data, and run it through popcorn.
+	   	$.getJSON('popcorn.json', function(data) {
+	   			var textStr;
+	   			$.each(data, function(index, note) {
+	   				//Reformat the original string for output
+	   				note.orig = parseLines(note.orig);
+	   				
+	 				//Check the setting for which text format to show, set textStr to the appropriate text.
+	   				if (setting == 'orig') textStr = note.orig ;
+	   				else if (setting == 'modern') textStr = note.modern;
+	   				else if (setting == 'both') {
+	   					//For the translation
+	   					textStr = note.orig
+	   					popcorn.footnote({
+	   						start: note.start,
+	   						end: note.end,
+	   						text: note.modern,
+	   						target: "translation"
+	   					});
+	   				}
+	   				//Populate footnotes
+	   				popcorn.footnote({
+	   					start: note.start,
+	   					end: note.end,
+	   					text: textStr,
+	   					target: "footnotes"
+	   				});
+	   			});
+	   		});
+	   		
+	 //Create hover functionality
+	 	$('.defn').hover(function() {
+	 		popcorn.pause();
+	 	}, function() {
+	 		popcorn.play();
+	 	});
+	
+	});
+	
+	
+
+	// FUNCTIONS ------------------
+	
+	function parseLines(text) {
+		//Creates a formatted version from the JSON format of the line
+		// The fragment ' / ' is converted to a new line, and paragraph tags are added on each line
+		var parsed = ('<p class="ln">' + text + '</p>')
+			.replace(/ \/ /g, '</p><p class="ln">')
+			.replace(/\[defn\]/g, '<b class="defn"><span>')
+			.replace(/\%\%/g, '</span>')
+			.replace(/\[\/defn\]/g,'</b>');
+		return parsed;
+	}
+	
+	function jumpTo(num) {
+		popcorn.currentTime(num).play();
+	}
+	
+	function createBox(xpos, ypos, message) {
+		$("#wrapper").append('<div class="floating-box">'+message+'</div>').css({height:'100px',width:'200px',position:'relative',left:xpos,top:ypos,display:'block'});
+		//Creates a box at the xpos and ypos coordinates given.
+	}
+	
+	function enableTesting() {
+		//Adds a floating bar to the top which, if clicked, activates a grid overlay stylesheet for testing purposes.
+		$('#wrapper').prepend('<div id="testing" style="text-align:center;width:100%;color:#FFF;font-size:10px;background:#000;position:fixed;top:0;left:0">TESTING STYLES<div>');
+		
+		$('#testing').click(function() {
+			if(!$(this).hasClass('on')) {
+				$('head').append('<link rel="stylesheet" href="css/testing.css" type="text/css" />');
+				$(this).addClass('on');
+			} else {
+				$(this).removeClass('on');
+				$('LINK[href="css/testing.css"]').remove();
+			}
+		});
+	}
+</script>
+
+<!-- end scripts-->
+
+<!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
+	<script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
+<![endif]-->
+
+</body>
+</html>

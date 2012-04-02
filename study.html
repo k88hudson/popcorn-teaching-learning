@@ -1,0 +1,50 @@
+
+<script type="text/javascript">
+rect.hover(function () {
+/* FROM THIS WE HAVE LEARNED ABOUT THE FOLLOWING FUNCTIONS :
+.getBBox().width
+
+r.popup(x,y,label,side,1);
+
+
+*/
+//WHEN THE MOUSE ENTERS THE HOVER AREA,
+    clearTimeout(leave_timer);
+    //Stop the leave_timer function, which hides the frame and labels.
+    var side = "right";
+    if (x + frame.getBBox().width > width) {
+        side = "left";
+    }
+    //If the frame's corner is greater than the width of the visualization, put the little triangle on the left. otherwise, put it on the right.
+    var ppp = r.popup(x, y, label, side, 1),
+    // Create a popup with the label text.
+        anim = Raphael.animation({
+            path: ppp.path,
+            transform: ["t", ppp.dx, ppp.dy]
+        }, 200 * is_label_visible);
+    // If the label is visible from before, animate the function along the path from the previous label position. If it is not visible, make the animation time 0.
+    lx = label[0].transform()[0][1] + ppp.dx;
+    ly = label[0].transform()[0][2] + ppp.dy;
+    frame.show().stop().animate(anim);
+    // show the frame and animate it.
+    label[0].attr({text: data + " hit" + (data == 1 ? "" : "s")}).show().stop().animateWith(frame, anim, {transform: ["t", lx, ly]}, 200 * is_label_visible);
+    
+    label[1].attr({text: lbl + " September 2008"}).show().stop().animateWith(frame, anim, {transform: ["t", lx, ly]}, 200 * is_label_visible);
+    // Update the text on the label to show the appropriate date and value
+    dot.attr("r", 6);
+    // Set the radius of the dot to be 6 (bigger)
+    is_label_visible = true;
+    // Now set the label to being visible for future animations
+}, function () {
+	// WHEN THE MOUSE LEAVES THE HOVER AREA
+    dot.attr("r", 4);
+    // Set the radius of the dot back to normal.
+    leave_timer = setTimeout(function () {
+    // Hide the frame and the labels, and set the labels being visible to false.
+        frame.hide();
+        label[0].hide();
+        label[1].hide();
+        is_label_visible = false;
+    }, 1);
+});
+</script>

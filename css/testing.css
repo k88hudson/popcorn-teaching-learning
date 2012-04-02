@@ -1,0 +1,29 @@
+#testing.on {
+	background: #FF0000 !important;
+	font-style: italic;
+}
+
+}
+body {
+}
+
+div {
+	background-color: rgba(255, 42, 42, 0.1);
+	
+}
+
+aside {
+	background-color: rgba(42, 140, 255, 0.1);
+	
+}
+#wrapper {
+	background: #FFF;
+}
+
+p {
+	background-color: rgba(255, 42, 42, 0.1);
+}
+
+i {
+	background-color: rgba(255, 42, 42, 0.1);
+}
