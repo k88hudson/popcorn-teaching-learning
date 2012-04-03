@@ -17,6 +17,7 @@
 	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	
 	<link rel="stylesheet" href="css/1140.css">
+	<link rel="stylesheet" href="../src/ui/butter.ui.css" data-butter-exclude />
 	
 	<style type="text/css">
 		body {
@@ -392,6 +393,11 @@
 		}
 		
 	</style>
+	
+	<script src="https://browserid.org/include.js" type="text/javascript"></script>
+    <script src="../src/butter.js" data-butter-exclude /></script>
+    <script type="text/javascript" src="template.js" data-butter-exclude /></script>
+ 
 
 	<script src="js/libs/modernizr-2.0.min.js"></script>
 	<script src="js/libs/respond.min.js"></script>
@@ -425,10 +431,7 @@
 				</nav>
 			</div>
 				<div id="video-wrapper">
-					<video id="video" controls>
-						<source id='mp4'
-						       src="goodies/macbeth.mp4"
-						       type='video/mp4; codecs="avc1, mp4a"'>
+					<video id="video" controls data-butter="media">
 						<source id='ogv'
 						    src="goodies/macbeth.ogv"
 						    type='video/ogg; codecs="theora, vorbis"'>
@@ -491,7 +494,6 @@
 <script>window.jQuery || document.write('<script src="js/libs/jquery-ui.js"><\/script>')</script>
 <!-- scripts concatenated and minified via ant build script-->
 <script src="js/plugins.js"></script>
-<script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/libs/popcorn.js"><\/script>')</script>
 <script type="text/javascript" src="js/jquery.localscroll-min.js"></script>
 <script type="text/javascript" src="js/libs/jquery.fittext.js"></script>
@@ -500,203 +502,6 @@
 <script type="text/javascript" src="build/canvas2image.js"></script>
 <script type="text/javascript" src="build/base64.js"></script>
 <script src="js/script.js"></script>
-
-<script>
-	//enableTesting();
-	
-	//Create the popcorn instance
-	var popcorn = Popcorn( "#video" );
-	
-	
-	//Initialize the defaults
-	var defaultLanguage = 'orig';
-	var autoPlay = 'on';
-
-	$(document).ready( function(){
-	 //Fittext
-	 $('h1').fitText(1, {maxFontSize: '47px' });
-	
-	 //Get the json file containing footnote data, and run it through popcorn.
-	   	$.getJSON('popcorn.json', function(data) {
-	   			var textStr;
-	   			$.each(data, function(index, note) {
-	   				//Reformat the original string for output
-	   				note.orig = parseLines(note.orig, index, note.start);
-	   				
-	 				//For the translation
-   					popcorn.footnote({
-   						start: note.start,
-   						end: note.end,
-   						text: note.modern,
-   						target: "translation"
-   					});
-
-	   				//Populate footnotes
-	   				popcorn.footnote({
-	   					start: note.start,
-	   					end: note.end,
-	   					text: note.orig,
-	   					target: "footnotes"
-	   				});
-	   				
-	   				//Append to transcript
-	   				$('#transcript div').append(note.orig);
-	   				
-	   				//Append to collapsable panel in terms
-	   				var terms = getTerms(note.orig);
-	   				if (terms != null) {
-	   					console.log(terms);
-		   				$.each(terms, function(k, term) {
-		   					var def = term.match(/\<b\>.*?\<\/b\>/g);
-		   					term = term.replace(def, '').replace(/start\=\"/g, 'onClick="getHash();" href="#').replace(/span/g, 'a');
-		   					console.log(term);
-		   					var newDefn = $("#collapsable").append(term + def);
-		   				});
-		   			}
-	   			});
-	   		});
-	   		
-	 //Create hover functionality
-	 	$('#video').hover(function() {
-	 	
-	 		if(popcorn.currentTime() <10) popcorn.currentTime(12);
-	 		
-	 		if(autoPlay == 'on') popcorn.play();
-	 		
-	 		$('.container').animate({"background-color":'#222',color:'#333'}, 400);
-	 		$(this).parent().css('color','#fff');
-	 		//$('#collapsable a').css('color','#850F2C');
-	 		$('aside ul li .content').css('opacity','0.1');
-	 		$('#collapsable').css('opacity','0.4');
-	 		
-	 	}, function() {
-	 		
-	 		if (autoPlay == 'on') popcorn.pause();
-	 		
-	 		$('.container').animate({"background-color":'#EFEFEF',color:'#000'}, 400);
-	 		$(this).parent().css('color','');
-	 		//$('#collapsable a').css('color','');
-	 		$('aside ul li .content').css('opacity','1');
-	 		$('#collapsable').css('opacity','1');
-	 	});
-	
-	//CLICK FUNCTIONS
-	$("#language a").click( function(e) {
-		//language buttons
-		e.preventDefault();
-
-		$("#language a").removeClass('on');
-		
-		$(this).addClass('on')
-		
-		var link = $(this);
-		switch(link.attr('href')) {
-			case 'original':
-				$("#footnotes").show();
-				$("#translation").hide();
-				break;
-				
-			case 'translation':
-				$("#footnotes").hide();
-				$("#translation").show();
-				break;
-				
-			case 'bilingual':
-				$("#footnotes").show();
-				$("#translation").show();
-				break;
-		}
-	}); //#language a
-	
-	$(".switch a").click( function(e) {
-			e.preventDefault();
-	
-			if( $(this).hasClass('on') ) {
-				$(this).removeClass('on');
-				$(this).addClass('off');
-				switch($(this).attr('href')) {
-					case 'auto-play':
-						autoPlay = 'off'; 
-						$(this).html('auto-play off');
-						break;
-					case 'terms':
-						$('#terms').fadeOut();
-						$('#notes').removeClass('fourcol').addClass('sevencol');
-						$(this).html('terms off');
-						break;
-				}
-				
-			} else {
-				$(this).addClass('on');
-				$(this).removeClass('off');
-				switch($(this).attr('href')) {
-					case 'auto-play':
-						autoPlay = 'on'; 
-						$(this).html('auto-play on');
-						break;
-					case 'terms':
-						$('#terms').fadeIn();
-						$('#notes').removeClass('sevencol').addClass('fourcol');
-						$(this).html('terms on');
-						break;
-				}
-			}
-		}); //#autoplay a	
-	
-	//Listen for changes
-		$(window).bind('hashchange', getHash);
-	
-}); //Doc ready	
-	
-
-	// FUNCTIONS ------------------
-	
-	function getHash() {
-		var posn = window.location.hash.substr(1);
-		if(popcorn) {
-				popcorn.currentTime(posn);
-				console.log('scrolled to: ' + posn);
-				popcorn.play();
-		}
-	}
-	
-	function parseLines(text, id, start) {
-		//Creates a formatted version from the JSON format of the line
-		// The fragment ' / ' is converted to a new line, and paragraph tags are added on each line
-		var parsed = ('<p id="line-'+id+'" class="ln">' + text + '</p>')
-			.replace(/ \/ /g, '</p><p class="ln">')
-			.replace(/\[defn\]/g, '<span class="defn" start="'+start+'"><b>')
-			.replace(/ \> /g, '</b>')
-			.replace(/\[\/defn\]/g,'</span>');
-		return parsed;
-	}
-	
-	function getTerms(text) {
-		//Gets terms out of a parsed string of text.
-		var result = text.match(/\<span class\=\"defn\".*?\<\/span\>/g);
-		var res
-		return result;
-	}
-	
-	function jumpTo(num) {
-		popcorn.currentTime(num).play();
-	}
-	
-	function enableTesting() {
-		//Adds a floating bar to the top which, if clicked, activates a grid overlay stylesheet for testing purposes.
-		$('#wrapper').prepend('<div id="testing" style="text-align:center;width:100%;color:#FFF;font-size:10px;background:#000;position:fixed;top:0;left:0">TESTING STYLES<div>');
-		
-		$('#testing').click(function() {
-			if(!$(this).hasClass('on')) {
-				$('head').append('<link rel="stylesheet" href="css/testing.css" type="text/css" />');
-				$(this).addClass('on');
-			} else {
-				$(this).removeClass('on');
-				$('LINK[href="css/testing.css"]').remove();
-			}
-		});
-	}
-</script>
 
 <!-- end scripts-->
 
